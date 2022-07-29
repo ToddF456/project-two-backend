@@ -23,34 +23,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/customers")
 public class CustomerController {
 	
-	@Autowired
-	private CustomerService service;
-
-	
-	@GetMapping("/{id}")
-	public Customers findById(@PathVariable int id) {
-		return service.findById(id);
-	}
-	
-	@GetMapping
-	public Customers findByName(@RequestParam String firstName, @RequestParam String LastName) {
-		return service.findByName(firstName, LastName);
-	}
-	
-	@PostMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public  Customers create(@Valid @RequestBody Customers customer) {
-		return service.save(customer);
-	}
-	
-	@PutMapping("/{id}")
-	public  Customers update(@Valid @RequestBody Customers customer, @PathVariable int id) {
-		customer.setId(id);
-		return service.save(customer);
-	}
-
-	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable int id){
-		service.deleteById(id);
-	}
+//	@Autowired
+//	private CustomerService service;
+//
+//	
+//	@GetMapping("/{id}")
+//	public Customers findById(@PathVariable int id) {
+//		return service.findById(id);
+//	}
+//	
+//	@GetMapping
+//	public Customers findByName(@RequestParam String firstName, @RequestParam String LastName) {
+//		return service.findByName(firstName, LastName);
+//	}
+//	
+//	@PostMapping
+//	@ResponseStatus(code = HttpStatus.CREATED)
+//	public  Customers create(@Valid @RequestBody Customers customer) {
+//		return service.save(customer);
+//	}
+//	
+//	@PutMapping("/{id}")
+//	public  Customers update(@Valid @RequestBody Customers customer, @PathVariable int id) {
+//		customer.setId(id);
+//		return service.save(customer);
+//	}
+//
+//	@DeleteMapping("/{id}")
+//	public void deleteById(@PathVariable int id){
+//		service.deleteById(id);
+//	}
 }

@@ -24,30 +24,30 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/reservations")
 public class ReservationController {
 	
-	@Autowired
-	private ReservationService service;
-	
-	@GetMapping("/{confirmation}") 
-	public Reservations findByConfirmation(@PathVariable int confirmation) {
-		return service.findByConfirmation(confirmation);
-	}
-	
-	
-	@PostMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public Reservations create(@Valid @RequestBody Reservations reservation) {
-		return service.save(reservation);
-	}
-	
-	@PutMapping("/{id}")
-	public Reservations update(@Valid @RequestBody Reservations reservation, @PathVariable int id) {
-		reservation.setId(id);
-		return service.save(reservation);
-	}
-
-	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable int id){
-		service.deleteById(id);
-	}
+//	@Autowired
+//	private ReservationService service;
+//	
+//	@GetMapping("/{confirmation}") 
+//	public Reservations findByConfirmation(@PathVariable int confirmation) {
+//		return service.findByConfirmation(confirmation);
+//	}
+//	
+//	
+//	@PostMapping
+//	@ResponseStatus(code = HttpStatus.CREATED)
+//	public Reservations create(@Valid @RequestBody Reservations reservation) {
+//		return service.save(reservation);
+//	}
+//	
+//	@PutMapping("/{id}")
+//	public Reservations update(@Valid @RequestBody Reservations reservation, @PathVariable int id) {
+//		reservation.setId(id);
+//		return service.save(reservation);
+//	}
+//
+//	@DeleteMapping("/{id}")
+//	public void deleteById(@PathVariable int id){
+//		service.deleteById(id);
+//	}
 
 }
