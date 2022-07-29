@@ -23,7 +23,7 @@ import com.skillstorm.hotel.services.CustomerService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/customers")
+@RequestMapping(path="/customers")
 public class CustomerController {
 	
 	@Autowired
@@ -33,11 +33,6 @@ public class CustomerController {
 	@GetMapping("/{id}")
 	public Customers findById(@PathVariable int id) {
 		return service.findById(id);
-	}
-	
-	@GetMapping
-	public Customers findByName(@RequestParam String firstName, @RequestParam String LastName) {
-		return service.findByName(firstName, LastName);
 	}
 	
 	@PostMapping

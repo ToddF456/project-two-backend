@@ -26,17 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rooms")
 public class RoomController {
 
-	@Autowired
-	private RoomService service;
-	
-	@GetMapping
-	public List<Rooms> findAll() {
-		return service.findAll();
-	}
-	
-	@GetMapping("/dates")
-	public List<Rooms> findAvailableByDates(@RequestParam LocalDate startDate, 
-			@RequestParam LocalDate endDate) {
-		return service.findAvailableByDates(startDate, endDate);
-	}
+//	@Autowired
+//	private RoomService service;
+//	
+//	@GetMapping
+//	public List<Rooms> findAll() {
+//		return service.findAll();
+//	}
+//	
+//	@GetMapping("/dates")
+//	public List<Rooms> findAvailableByDates(@RequestParam LocalDate startDate, 
+//			@RequestParam LocalDate endDate) {
+//		return service.findAvailableByDates(startDate, endDate);
+//	}
 }
