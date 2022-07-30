@@ -1,5 +1,6 @@
 package com.skillstorm.hotel.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -22,9 +23,9 @@ public class RoomServiceImpl implements RoomService {
 	private RoomRepository repository;
 	
 	@Override
-	public List<Object[]> findAvailableByDates() {
+	public List<Rooms> findAvailableByDates(LocalDate startDate, LocalDate endDate, int numGuests) {
 		
-		return repository.findRoomsWithinDates();
+		return repository.findRoomsWithinDates(startDate, endDate, numGuests);
 	}
 
 	@Override
