@@ -15,8 +15,8 @@ import javax.validation.constraints.Positive;
 public class Rooms {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JoinColumn(name = "room_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int roomId;
 	
 	@NotBlank
