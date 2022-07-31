@@ -1,13 +1,38 @@
 package com.skillstorm.hotel.models;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 public class Reservations {
 
+	@Id
+	@Column(name = "reservation_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reservationId;
+	
+	@NotBlank
+	@JoinColumn(name = "room_id")
 	private int roomId;
+	
+	@NotBlank
+	@JoinColumn(name = "customer_id")
 	private int customerId;
+	
+	@NotBlank
+	@Column(name = "start_date")
 	private String startDate;
+	
+	@NotBlank
+	@Column(name = "end_date")
 	private String endDate;
+	
+	@Positive
+	@Column(name = "confirmation_number")
 	private int confirmationNumber;
 	
 	public Reservations() {}
