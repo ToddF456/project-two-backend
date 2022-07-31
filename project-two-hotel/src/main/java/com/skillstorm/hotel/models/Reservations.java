@@ -1,20 +1,18 @@
 package com.skillstorm.hotel.models;
 
-import java.sql.Date;
-//import java.time.LocalDate; possible use for this. waiting for proper hibernate lesson.
 
 public class Reservations {
 
 	private int reservationId;
 	private int roomId;
 	private int customerId;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private int confirmationNumber;
 	
 	public Reservations() {}
 
-	public Reservations(int reservationId, int roomId, int customerId, Date startDate, Date endDate,
+	public Reservations(int reservationId, int roomId, int customerId, String startDate, String endDate,
 			int confirmationNumber) {
 		super();
 		this.reservationId = reservationId;
@@ -25,7 +23,7 @@ public class Reservations {
 		this.confirmationNumber = confirmationNumber;
 	}
 
-	public Reservations(int roomId, int customerId, Date startDate, Date endDate, int confirmationNumber) {
+	public Reservations(int roomId, int customerId, String startDate, String endDate, int confirmationNumber) {
 		super();
 		this.roomId = roomId;
 		this.customerId = customerId;
@@ -58,19 +56,19 @@ public class Reservations {
 		this.customerId = customerId;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
