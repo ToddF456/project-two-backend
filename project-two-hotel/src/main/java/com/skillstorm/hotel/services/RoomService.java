@@ -7,7 +7,7 @@ import com.skillstorm.hotel.models.Rooms;
 
 public interface RoomService {
 
-	List<Rooms> findAvailableByDates(LocalDate startDate, LocalDate endDate, int numGuests);
+	List<Rooms> findAvailableByDates(String startDate, String endDate, int numGuests);
 	List<Rooms> findAll();
 	Rooms save(Rooms room);
 	Rooms update(Rooms room);

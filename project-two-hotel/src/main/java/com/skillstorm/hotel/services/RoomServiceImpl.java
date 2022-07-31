@@ -23,7 +23,7 @@ public class RoomServiceImpl implements RoomService {
 	private RoomRepository repository;
 	
 	@Override
-	public List<Rooms> findAvailableByDates(LocalDate startDate, LocalDate endDate, int numGuests) {
+	public List<Rooms> findAvailableByDates(String startDate, String endDate, int numGuests) {
 		
 		return repository.findRoomsWithinDates(startDate, endDate, numGuests);
 	}

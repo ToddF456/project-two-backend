@@ -36,9 +36,9 @@ public class RoomController {
 		return service.findAll();
 	}
 	
-	@PostMapping("/dates")
-	public List<Rooms> findAvailableByDates(@Valid @RequestBody LocalDate startDate, 
-			@Valid @RequestBody LocalDate endDate, @Valid @RequestBody int numGuests) {
+	@GetMapping("/dates")
+	public List<Rooms> findAvailableByDates(@RequestParam String startDate, 
+			@RequestParam String endDate, @RequestParam int numGuests) {
 		return service.findAvailableByDates(startDate, endDate, numGuests);
 	}
 }
