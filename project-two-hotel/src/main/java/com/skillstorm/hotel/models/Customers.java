@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -16,8 +17,8 @@ import javax.validation.constraints.Positive;
 public class Customers {
 
 	@Id
+	@JoinColumn(name="customer_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="customer_id")
 	private int customerId;
 	
 	@NotBlank
