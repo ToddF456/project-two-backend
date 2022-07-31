@@ -19,11 +19,11 @@ public class Reservations {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reservationId;
 	
-	@NotBlank
+	@Positive
 	@JoinColumn(name = "room_id")
 	private int roomId;
 	
-	@NotBlank
+	@Positive
 	@JoinColumn(name = "customer_id")
 	private int customerId;
 	
