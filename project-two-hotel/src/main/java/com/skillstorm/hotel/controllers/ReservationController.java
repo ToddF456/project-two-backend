@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.hotel.models.Reservations;
+import com.skillstorm.hotel.services.ReservationService;
+
 
 @RestController
 @CrossOrigin("*")
@@ -32,16 +35,14 @@ public class ReservationController {
 		return service.findByConfirmation(confirmation);
 	}
 	
-	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Reservations create(@Valid @RequestBody Reservations reservation) {
 		return service.save(reservation);
 	}
 	
-	@PutMapping("/{id}")
-	public Reservations update(@Valid @RequestBody Reservations reservation, @PathVariable int id) {
-		reservation.setId(id);
+	@PutMapping()
+	public Reservations update(@Valid @RequestBody Reservations reservation) {
 		return service.save(reservation);
 	}
 
