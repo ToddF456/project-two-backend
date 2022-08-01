@@ -39,9 +39,13 @@ public class Rooms {
 	@Column(name = "price")
 	private int price;
 	
+	@Positive
+	@Column(name = "img_id")
+	private int imgId;
+	
 	public Rooms() {}
 
-	public Rooms(int roomId, String roomNumber, String type, int numBeds, int maxOccupancy, int price) {
+	public Rooms(int roomId, String roomNumber, String type, int numBeds, int maxOccupancy, int price, int imgId) {
 		super();
 		this.roomId = roomId;
 		this.roomNumber = roomNumber;
@@ -49,15 +53,17 @@ public class Rooms {
 		this.numBeds = numBeds;
 		this.maxOccupancy = maxOccupancy;
 		this.price = price;
+		this.imgId = imgId;
 	}
 
-	public Rooms(String roomNumber, String type, int numBeds, int maxOccupancy, int price) {
+	public Rooms(String roomNumber, String type, int numBeds, int maxOccupancy, int price, int imgId) {
 		super();
 		this.roomNumber = roomNumber;
 		this.type = type;
 		this.numBeds = numBeds;
 		this.maxOccupancy = maxOccupancy;
 		this.price = price;
+		this.imgId = imgId;
 	}
 
 	public int getRoomId() {
@@ -107,7 +113,12 @@ public class Rooms {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	
-	
+
+	public int getImgId() {
+		return imgId;
+	}
+
+	public void setImgId(int imgId) {
+		this.imgId = imgId;
+	}
 }
