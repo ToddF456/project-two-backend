@@ -17,29 +17,29 @@ import javax.validation.constraints.Positive;
 public class Customers {
 
 	@Id
-	@JoinColumn(name="customer_id")
+	@JoinColumn(name= "customer_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerId;
 	
 	@NotBlank
-	@Column(name="first_name")
+	@Column(name= "first_name")
 	private String firstName;
 	
 	@NotBlank
-	@Column(name="last_name")
+	@Column(name= "last_name")
 	private String lastName;
 	
 	@NotBlank
 	@Email
-	@Column(name="email")
+	@Column(name= "email")
 	private String email;
 	
-	@Column(name="phone_number")
+	@Column(name= "phone_number")
 	@Pattern(regexp = "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$")
 	private String phoneNumber;
 	
 	@Positive
-	@Column(name="num_guests")
+	@Column(name= "num_guests")
 	private int numGuests;
 	
 	public Customers() {}
