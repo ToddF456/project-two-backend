@@ -17,12 +17,15 @@ public interface RoomRepository extends CrudRepository<Rooms, Integer> {
 	
 }
 
-
-//This is the query to find rooms that do not have a reservation within a date range and the amount of guests that can be in a room.
-//SELECT *
-//FROM rooms
-//WHERE NOT EXISTS(SELECT * FROM reservations
-//WHERE rooms.room_id = reservations.room_id 
-//AND '2022-07-01' <= reservations.end_date 
-//AND '2022-07-03' >= reservations.start_date)
-//AND rooms.max_occupancy >= 4;
+/*
+	This is the query to find rooms that do not have a reservation within 
+	a date range and the amount of guests that can be in a room.
+	
+	SELECT *
+	FROM rooms
+	WHERE NOT EXISTS(SELECT * FROM reservations
+	WHERE rooms.room_id = reservations.room_id 
+	AND '2022-07-01' < reservations.end_date 
+	AND '2022-07-03' > reservations.start_date)
+	AND rooms.max_occupancy >= 4;
+*/
