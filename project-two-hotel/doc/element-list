@@ -1,0 +1,5 @@
+com.skillstorm.hotel
+com.skillstorm.hotel.controllers
+com.skillstorm.hotel.models
+com.skillstorm.hotel.repositories
+com.skillstorm.hotel.services

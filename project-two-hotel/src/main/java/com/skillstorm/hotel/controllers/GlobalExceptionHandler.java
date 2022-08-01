@@ -8,11 +8,22 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.skillstorm.hotel.models.BeanNotValidDto;
 
+/**
+ * A class which handles exceptions that occur through the 
+ * program, mainly to deal with invalid beans.
+ * 
+ * @author Todd Foreman
+ *
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-	// Think of the class as a try block around every controller in your app
-	// This ExceptionHandler is a catch block specific for MethodArgumentNotValidException
+	/**
+	 * If a bean is invalid, this will return a new exception 
+	 * message, as well as return a HTTP 400 code.
+	 * @param e
+	 * @return
+	 */
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class) // This works similar to @AfterThrowing
 	public BeanNotValidDto invalidBean(Exception e) {

@@ -1,6 +1,5 @@
 package com.skillstorm.hotel.controllers;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -23,19 +22,45 @@ import com.skillstorm.hotel.models.Rooms;
 import com.skillstorm.hotel.services.RoomService;
 
 
+/**
+ * Controller class to send and receive HTTP Requests, which 
+ * allow a web server to query the MySQL database, and uses 
+ * the methods specified in the RoomService class.
+ * 
+ * @author Todd Foreman
+ *
+ */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/rooms")
 public class RoomController {
 
+	/**
+	 * Auto wiring the service to allow methods to be used by a RoomService object.
+	 */
 	@Autowired
 	private RoomService service;
 	
+	/**
+	 * Finds all of the rooms using a Get request.
+	 * 
+	 * @return
+	 */
 	@GetMapping
 	public List<Rooms> findAll() {
 		return service.findAll();
 	}
 	
+	/**
+	 * Finds all of the rooms that do not have a reservation 
+	 * within a date range and can fit the specified number 
+	 * of guests in the url using a Get request.
+	 * 
+	 * @param startDate
+	 * @param endDate
+	 * @param numGuests
+	 * @return
+	 */
 	@GetMapping("/dates")
 	public List<Rooms> findAvailableByDates(@RequestParam String startDate, 
 			@RequestParam String endDate, @RequestParam int numGuests) {
