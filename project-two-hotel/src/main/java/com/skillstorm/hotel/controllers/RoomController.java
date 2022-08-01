@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.hotel.models.Rooms;
+import com.skillstorm.hotel.services.RoomService;
 
 
 @RestController
@@ -35,8 +37,8 @@ public class RoomController {
 	}
 	
 	@GetMapping("/dates")
-	public List<Rooms> findAvailableByDates(@RequestParam LocalDate startDate, 
-			@RequestParam LocalDate endDate) {
-		return service.findAvailableByDates(startDate, endDate);
+	public List<Rooms> findAvailableByDates(@RequestParam String startDate, 
+			@RequestParam String endDate, @RequestParam int numGuests) {
+		return service.findAvailableByDates(startDate, endDate, numGuests);
 	}
 }
