@@ -12,7 +12,7 @@ import com.skillstorm.hotel.models.Rooms;
 @Repository
 public interface RoomRepository extends CrudRepository<Rooms, Integer> {
 	
-	@Query(value = "SELECT * FROM rooms WHERE NOT EXISTS(SELECT * FROM reservations WHERE rooms.room_id = reservations.room_id AND ?1 <= reservations.end_date AND ?2 >= reservations.start_date) AND rooms.max_occupancy >= ?3", nativeQuery = true)
+	@Query(value = "SELECT * FROM rooms WHERE NOT EXISTS(SELECT * FROM reservations WHERE rooms.room_id = reservations.room_id AND ?1 < reservations.end_date AND ?2 > reservations.start_date) AND rooms.max_occupancy >= ?3", nativeQuery = true)
 	public List<Rooms> findRoomsWithinDates(String startDate, String endDate, int numGuests);
 	
 }
