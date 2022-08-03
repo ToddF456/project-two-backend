@@ -91,7 +91,7 @@ public class ReservationController {
 		List<Rooms> availableRooms = this.roomService.findAvailableByDates(reservation.getStartDate(), reservation.getEndDate(), 
 				this.customerService.findById(reservation.getCustomerId()).getNumGuests());
 		
-		System.out.println(myRoomId);
+		//System.out.println(myRoomId);
 		boolean roomAvailable = false;
 		for (Rooms room : availableRooms) { 
 			System.out.println(room.getRoomId());
