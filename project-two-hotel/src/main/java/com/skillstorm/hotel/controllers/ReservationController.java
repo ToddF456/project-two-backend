@@ -63,21 +63,26 @@ public class ReservationController {
 	
 	/**
 	 * Creates a new reservation using the raw JSON sent to the servlet 
-	 * using a Post request.
+	 * using a Post request. First checks that room is still available.
+	 * If so, makes makes the Post request, else returns 409 CONFLICT 
 	 * 
 	 * @param reservation
 	 * @return
 	 */
 	@PostMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public Reservations create(@Valid @RequestBody Reservations reservation) {
-		return service.save(reservation);
+	public ResponseEntity<Reservations> create(@Valid @RequestBody Reservations reservation) {
+		int numGuests = this.customerService.findById(reservation.getCustomerId()).getNumGuests();
+		List<Rooms> availableRooms = this.roomService.findAvailableByDates(reservation.getStartDate(), reservation.getEndDate(), numGuests);
+		
+		if (availableRooms.stream().anyMatch(o -> o.getRoomId() == reservation.getRoomId())) {
+			return new ResponseEntity<>(service.save(reservation), HttpStatus.OK);
+		} else { return new ResponseEntity<>(null, HttpStatus.CONFLICT); }
 	}
 	
 	/**
 	 * Updates a reservation based on the specified id in the url, 
 	 * and the raw JSON sent to the servlet using a Put Request.
-	 * Throws an IllegalArgumentException and rolls back changes if room is not available.
+	 * Returns 400 status and rolls back changes if room is not available.
 	 * 
 	 * @param reservation
 	 * @return
@@ -99,12 +104,10 @@ public class ReservationController {
 		}
 		
 		if (roomAvailable) {
-			System.out.println("in if");
 			return new ResponseEntity<>(service.save(reservation), HttpStatus.OK);
 		}
 		else {
-			System.out.println("in else");
-			throw new IllegalArgumentException();
+			return new ResponseEntity<>(service.save(reservation), HttpStatus.BAD_REQUEST);
 		}
 	}
 
